@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Oliver sine bursdagsinvitasjoner</title>
+    <link rel="stylesheet" href="{% static 'invite/css/style.css' %}">
+</head>
+<body>
+
+    
+
+
+    {% for card in cards %}
+    <section class="card a5">
+        <a href="{% url 'card' card.name|slugify %}">
+            <img src="{% url 'card' card.name|slugify %}" />        
+        </a>
+    </section>
+    <div class="no-print">
+            <a href="{% url 'admin:invite_invite_change' card.id %}">
+                <button class="no-print">rediger</button>
+            </a>
+            <a class="no-print" href="{% url 'card' card.name|slugify %}">
+                <button class="no-print">vis kort</button>
+            </a>
+            <b>Status:</b> {{ card.status }}
+        </div>
+    {% endfor %}
+
+
+    <header class="fixed no-print">
+        <div class="no-print">
+            <a href="{% url 'admin:invite_invite_add' %}"><button>Ny invitasjon</button></a>
+            <a onclick="window.print();"><button>Print</button></a>
+        </div>
+    </header>
+
+</body>
+</html>
