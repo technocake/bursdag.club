@@ -1,6 +1,7 @@
 version: "3"
 services:
   bursdag:
+    image: technocake/bursdag.club:latest
     build:
       context: .
     deploy:
