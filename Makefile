@@ -23,11 +23,11 @@ activate:
 
 
 image:
-	@if [ -z ${v} ]; then \
+	@if [ -z ${tag} ]; then \
 		echo "version not provided:  make v=tag image" && exit 1; \
 	fi
-	docker build -t technocake/bursdag.club:v${v} .
-	docker push technocake/bursdag.club:v${v}
+	docker build -t technocake/bursdag.club:${tag} .
+	docker push technocake/bursdag.club:${tag}
 
 stack:
 	docker stack deploy -c docker-compose.yml bursdag
