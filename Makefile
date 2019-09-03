@@ -21,3 +21,10 @@ deploy:
 activate:
 	. venv/bin/activate
 
+
+image:
+	@if [ -z ${v} ]; then \
+		echo "version not provided:  make v=tag image" && exit 1; \
+	fi
+	docker build -t technocake/bursdag.club:v${v} .
+	docker push technocake/bursdag.club:v${v}
