@@ -28,3 +28,6 @@ image:
 	fi
 	docker build -t technocake/bursdag.club:v${v} .
 	docker push technocake/bursdag.club:v${v}
+
+stack:
+	docker stack deploy -c docker-compose.yml bursdag
