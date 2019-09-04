@@ -19,6 +19,12 @@ admin.site.unregister(Site)
 
 
 class InviteAdmin(admin.ModelAdmin):
+    list_display = ('name', 'pokemon', 'status')
+    dynamic_field_order = ('name', 'pokemon', 'status')
+    search_fields = ('name', 'pokemon', 'status')
+    sortable = ('name', 'pokemon', 'status')
+
+
     def get_urls(self):
         urls = super().get_urls()
         my_urls = [
