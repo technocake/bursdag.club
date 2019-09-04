@@ -10,4 +10,4 @@ tinycss2==1.0.2
 webencodings==0.5.1
 dj-database-url
 gunicorn
-psycopg2
+psycopg2-binary
